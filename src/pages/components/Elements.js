@@ -1,112 +1,10 @@
-import Cube from "./Cube"
-import CustomParticles from "./CustomParticles"
-import Points from "./Points"
 import { Stars, Text3D, Center, useMatcapTexture } from "@react-three/drei"
 import { EffectComposer, Bloom } from "@react-three/postprocessing"
-import { useThree } from "@react-three/fiber"
 import { motion } from "framer-motion-3d"
 import * as THREE from 'three'
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect } from "react"
 import { useFrame } from "@react-three/fiber"
 
-
-
-const Floor = (props) => {
-    const { section } = props
-    const [ matcapTexture ] = useMatcapTexture('416BA7_A5B8D0_0D2549_65ABEB', 256)
-    console.log(section)
-    return (
-            <motion.mesh 
-                rotation-x={ - Math.PI * 0.5 } 
-                position-y={ -5 }
-                scale={ 20 } receiveShadow
-                animate={{
-                    y: section === 6 ? -5 : -12,
-                }}
-                
-            >
-            <planeGeometry /> 
-           
-            {/* <meshStandardMaterial /> */}
-            <meshMatcapMaterial  matcap={matcapTexture}  />
-           
-       
-        </motion.mesh> 
-
-    )
-}
-const Sphere = () => {
-  
-    
-   
-    return (
-
-        <mesh position={[-1, 1, 1 ]} castShadow receiveShadow>
-            <sphereGeometry />
-            <meshStandardMaterial />
-           
-        </mesh>
-    )
-}
-
-const Name = () => {
-    return (
-        <Center>
-            <Text3D font='./fonts/league-gothic/LeagueGothic_Regular.json'>
-                CASEY VAN ROOSE
-            </Text3D>
-        </Center>
-    )
-}
-
-
-
-// const Cubes = () => {
-//     const donuts = useRef([])
-
-//     const [ matcapTexture ] = useMatcapTexture('7B5254_E9DCC7_B19986_C8AC91', 256)
-//     useFrame((state, delta) =>
-//     {
-//         for(const donut of donuts.current)
-//         {
-//             donut.rotation.y += delta * 0.2
-//         }
-//     })
-//     useEffect(() =>
-//     {
-//         matcapTexture.colorSpace = THREE.SRGBColorSpace
-//         matcapTexture.needsUpdate = true
-
-//         material.matcap = matcapTexture
-//         material.needsUpdate = true
-//     }, [])
-
-
-
-//     return (
-//         <>
-//             { [...Array(100)].map((value, index) =>
-//                 <mesh
-//                     ref={ (element) => donuts.current[index] = element }
-//                     key={ index }
-//                     geometry={ boxGeometry }
-//                     material={ material }
-//                     position={ [
-//                         (Math.random() - 0.5) * 10,
-//                         (Math.random() - 0.5) * 10,
-//                         (Math.random() - 0.5) * 10
-//                     ] }
-//                     scale={ 0.2 + Math.random() * 0.2 }
-//                     rotation={ [
-//                         Math.random() * Math.PI,
-//                         Math.random() * Math.PI,
-//                         0
-//                     ] }
-//                 />
-//             ) }
-//         </>
-//     )
-// }
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
 const material = new THREE.MeshMatcapMaterial()
@@ -121,7 +19,7 @@ const SmallCube = ({ cubePosition, section }) => {
 
         material.matcap = matcapTexture
         material.needsUpdate = true
-    }, [])
+    }, [material])
 
     useFrame((state, delta) => {
         if (section === 0 || section === 3) {
@@ -265,17 +163,9 @@ const Elements = (props) => {
                     luminanceThreshold={ 0}
                 />
              </EffectComposer> 
-            {/* <ambientLight color={"white"} intensity={0.5} /> */}
-            {/* <directionalLight castShadow position={[1, 2, 3]} intensity={1.5}/> */}
             <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-            {/* <Cubes /> */}
-            {/* <Cube /> */}  
-            {/* <Sphere /> */}
-            {/* <Name /> */}
-           
             <BigCubeOfSmallCubes section={section} />
            
-            {/* <Floor section={section}/> */}
         </>
     )
 }
