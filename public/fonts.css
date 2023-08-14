@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'League Gothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/league-gothic/LeagueGothic-Regular-VariableFont_wdth.ttf') format('ttf')
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/dm-sans/DMSans-VariableFont_opsz,wght.ttf') format('ttf')
+  }
