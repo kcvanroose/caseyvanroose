@@ -24,7 +24,7 @@ const ScrollManager = (props) => {
         isAnimating.current = false;
       },
     });
-  }, [section]);
+  }, [data.el, section]);
 
   useFrame(() => {
     if (isAnimating.current) {
