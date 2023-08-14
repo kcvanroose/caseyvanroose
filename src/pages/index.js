@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { Canvas } from '@react-three/fiber';
-import Page from './components/Page'
+import Page from '../components/Page'
 import { Scroll, ScrollControls } from "@react-three/drei";
-import Elements from './components/Elements';
-import ScrollManager from './components/ScrollManager';
+import Elements from '../components/Elements';
+import ScrollManager from '../components/ScrollManager';
 import { useState } from 'react';
 
 
