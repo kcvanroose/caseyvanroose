@@ -32,7 +32,7 @@ const Section = (props) => {
     )
 }
 
-export const Page = (props) => {
+const Page = (props) => {
     const { onSectionChange } = props
   
     return (
@@ -46,6 +46,8 @@ export const Page = (props) => {
         </>
     )
 }
+
+export default Page
 
 const Header = (props) => {
     const { onSectionChange } = props
