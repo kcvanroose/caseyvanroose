@@ -19,7 +19,7 @@ const SmallCube = ({ cubePosition, section }) => {
 
         material.matcap = matcapTexture
         material.needsUpdate = true
-    }, [material])
+    }, [matcapTexture])
 
     useFrame((state, delta) => {
         if (section === 0 || section === 3) {
