@@ -33,11 +33,13 @@ const Section = (props) => {
 }
 
 const Page = (props) => {
-    const { onSectionChange } = props
+    const { section,onSectionChange } = props
   
     return (
-        <>
+        <>  
+            
             <Header onSectionChange={onSectionChange} />
+            {/* <Menu section={section} onSectionChange={onSectionChange}/> */}
             <About />
             <Developer />
             <Designer />
@@ -48,6 +50,19 @@ const Page = (props) => {
 }
 
 export default Page
+
+const Menu = ({section, onSectionChange}) => {
+    return (
+        <div className="relative top-0 z-10 backdrop-blur-md w-full ">  
+            <div className="flex gap-4 content">
+                <div onClick={() => onSectionChange(1)} className='text-base md:text-xl font-body underlined'>About</div>  
+                <div onClick={() => onSectionChange(2)} className='text-base md:text-xl font-body underlined'>Skills</div>
+                <div onClick={() => onSectionChange(4)} className='text-base md:text-xl font-body underlined'>Work Experience</div>
+                <div onClick={() => onSectionChange(5)} className='text-base md:text-xl font-body underlined'>Contact</div>
+            </div>
+        </div>
+    )
+}
 
 const Header = (props) => {
     const { onSectionChange } = props

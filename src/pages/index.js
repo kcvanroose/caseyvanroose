@@ -26,12 +26,25 @@ export default function Home() {
               <ScrollManager section={section} onSectionChange={setSection} />
               <Elements section={section} />
               <Scroll html>
-              <Page onSectionChange={setSection} /> 
+              <Page section={section} onSectionChange={setSection} /> 
               </Scroll>
             </ScrollControls> 
-          </Canvas>   
+          </Canvas>
+          <Menu section={section} onSectionChange={setSection} />   
         </div>
       </main>
     </>
+  )
+}
+const Menu = ({section, onSectionChange}) => {
+  return (
+      <div className={`fixed top-0 z-10 backdrop-blur-md w-full ${section === 0 ? 'invisible' : ''}`}>  
+          <div className="flex w-full gap-4 justify-center text-white py-1">
+              <div onClick={() => onSectionChange(1)} className={`text-base font-body ${section === 1 ? 'underlined' : ''}`}>About</div>  
+              <div onClick={() => onSectionChange(2)} className={`text-base font-body ${section === 2 || section === 3 ? 'underlined' : ''}`}>Skills</div>
+              <div onClick={() => onSectionChange(4)} className={`text-base font-body ${section === 4 ? 'underlined' : ''}`}>Work Experience</div>
+              <div onClick={() => onSectionChange(5)} className={`text-base font-body ${section === 5 || section === 6 ? 'underlined' : ''}`}>Contact</div>
+          </div>
+      </div>
   )
 }

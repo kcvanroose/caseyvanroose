@@ -22,13 +22,16 @@ const SmallCube = ({ cubePosition, section }) => {
     }, [matcapTexture])
 
     useFrame((state, delta) => {
-        if (section === 0 || section === 3) {
-            ref.current.rotation.x = 0
-            ref.current.rotation.y = 0
-        }
+        // if (section === 0 || section === 3 || section === ) {
+        //     ref.current.rotation.x = 0
+        //     ref.current.rotation.y = 0
+        // }
         if (section === 1 || section === 2) {
             ref.current.rotation.x += delta * 0.2
             ref.current.rotation.y += delta * 0.2
+        } else {
+            ref.current.rotation.x = 0
+            ref.current.rotation.y = 0
         }
         
     })
@@ -45,7 +48,6 @@ const SmallCube = ({ cubePosition, section }) => {
        }
         if (section === 3 || section === 5 || section === 6) {
             const array = [1, ...initialPosition.slice(1)]
-            console.log(array)
             return array
         } else {
             return initialPosition
@@ -105,11 +107,11 @@ const BigCubeOfSmallCubes = (props) => {
             return position
         }
         if (section === 3) {
-            const position = [11,3,-10]
+            const position = [8,1,-10]
             return position
         }
         if (section === 4) {
-            const position = [11.5,3,-10]
+            const position = [9,3,-10]
             return position
         }
         if (section === 5 || section === 6) {
