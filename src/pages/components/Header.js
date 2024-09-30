@@ -12,7 +12,7 @@ export default function Header() {
                     transition={{ duration: 1, delay: 0.5 }}
                     >
                         <h1 className="text-5xl font-display" >Casey van Roose</h1>
-                        <h2 className="text-5xl font-display">Web Developer and Graphic Designer</h2>
+                        <h2 className="text-5xl font-display">UX, Design, Develop</h2>
                         <div className="flex mt-2 gap-4" mt={6} gap={'24px'}>
                             <a href="#" className='text-xl font-body'>Skils</a>
                             <a href="#" className='text-xl font-body'>Work Experience</a>
